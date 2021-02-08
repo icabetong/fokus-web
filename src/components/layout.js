@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import GlobalStyle from './globalStyle';
+import GlobalStyle from './styles';
 import Header from './header';
 import Footer from './footer';
 
-const StyledLayout = styled.div`
+const LayoutStyle = styled.div`
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
     display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 100%;
+    
     #main-content {
         width: 100%;
         max-width: 62.5rem;
@@ -22,12 +23,12 @@ const StyledLayout = styled.div`
 
 const Layout = ({ children }) => {
     return (
-        <StyledLayout>
+        <LayoutStyle>
             <GlobalStyle/>
             <Header/>
             <main id="main-content">{children}</main>
             <Footer/>
-        </StyledLayout>
+        </LayoutStyle>
     )
 }
 

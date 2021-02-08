@@ -4,30 +4,33 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from "../components/seo";
 import LandingImage from '../components/image';
+import { LinkButton } from '../components/buttons';
 
-const renderFeature = (feature) => {
-  return <li>{feature}</li>
+const renderFeature = (feature, key) => {
+  return <li key={key}>{feature}</li>
 }
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query {
       file(relativePath: {eq: "index.md"}) {
         childMarkdownRemark {
           frontmatter {
             features
+            version
+            changelog
+            source
           }
         }
       }
     }
   `);
 
-  let features = data.file.childMarkdownRemark.frontmatter.features;
-  let version = data.file.childMarkdownRemark.frontmatter.version;
+  let data = query.file.childMarkdownRemark.frontmatter;
 
   return (
     <Layout>
-      <SEO/>
+      <SEO title="Fokus App"/>
       <div style={{display: `grid`, gridTemplateColumns: `1fr 1fr`}}>
         <div>
           <h1>Always be reminded of what needs to be done.</h1>
@@ -35,10 +38,10 @@ const IndexPage = () => {
   
           <div>
             { 
-              features ? <ul>{ features.map(feature => renderFeature(feature)) }</ul> : <div></div> 
+              data.features ? <ul>{ data.features.map((item, index) => { return renderFeature(item, index) } ) }</ul> : <div></div> 
             } 
           </div>
-          <button>{version}</button>
+          <LinkButton text={`Download Fokus ${data.version}`} targetLink={data.source}/>
         </div>
         <LandingImage/>
       </div>

@@ -1,12 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
+import { Colors } from './constants';
+
 const StyledFooter = styled.footer`
   width: 100%;
   height: 6.25rem;
   margin: 0 auto;
   padding: 0 2.5rem;
-  background: #1a46aa;
+  background: ${Colors.primary900};
   color: white;
   display: flex;
   justify-content: center;

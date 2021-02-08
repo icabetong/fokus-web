@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+import { Colors } from './constants';
+
 const StyledHeader = styled.header`
   width: 100%;
   max-width: 62.5rem;
@@ -17,7 +19,7 @@ const StyledHeader = styled.header`
 const StyledLogo = styled.div`
   font-size: 2rem;
   font-weight: 700;
-  color: #2197fe;
+  color: ${Colors.primary500};
 `
 
 const Header = () => {

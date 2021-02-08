@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+
 const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
@@ -16,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: white;
         color: black;
         font-size: 1.125rem;
-        font-family: "Fira Sans", Arial, Helvetica, sans-serif;
+        font-family: "Lato", Arial, Helvetica, sans-serif;
         line-height: 1.5rem;
         font-weight: 400;
     }

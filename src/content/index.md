@@ -10,4 +10,5 @@ features:
     - "On-Device Database"
 changelog: 
     - "Added Arabic Translation"
+source: "https://github.com/icabetong/fokus/releases/download/2.2.1-hotfix/app-release.apk"
 ---
