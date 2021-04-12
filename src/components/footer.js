@@ -1,14 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Colors } from './constants';
+import { color } from './constants';
 
 const StyledFooter = styled.footer`
   width: 100%;
   height: 6.25rem;
   margin: 0 auto;
   padding: 0 2.5rem;
-  background: ${Colors.primary900};
+  background: ${color.primary900};
   color: white;
   display: flex;
   justify-content: center;
@@ -27,7 +27,7 @@ const Footer = () => (
       rel="nofollow noopener noreferrer"
       aria-label="External Link"
     >
-      <span role="img" aria-label="emoji">👏</span> Visit on GitHub
+      <span role="img" aria-label="emoji">👏</span> View on GitHub
     </a>
   </StyledFooter>
 )

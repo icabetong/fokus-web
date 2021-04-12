@@ -6,24 +6,55 @@ import SEO from "../components/seo";
 import Page from '../components/page';
 import Image from '../components/image';
 import { LinkButton } from '../components/buttons';
-import { Device } from '../components/constants';
+import { font, color, device } from '../components/constants';
 
 const Content = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
 
-  @media ${Device.laptop} {
+  @media ${device.laptop} {
       max-width: 800px;
       grid-template-columns: 1fr 1fr;
   }
-  @media ${Device.desktop} {
+  @media ${device.desktop} {
       max-width: 1400px;
       grid-template-columns: 1fr 1fr;
   }
 `
+const Header = styled.h1`
+  line-height: 2.5rem;
+  font-family: ${font.header};
+
+  @media ${device.laptop} {
+    line-height: 3rem;
+  }
+`
+const Description = styled.h6`
+  line-height: 1.5rem;
+  font-weight: 400;
+  font-size: 1em;
+  
+  @media ${device.laptop} {
+    line-height: 1.5rem;
+  }
+`
+const Feature = styled.li`
+  font-size: 1em;
+  line-height: 1.5em;
+  font-weight: 600;
+  list-style-type: '👉';
+  padding-inline-start: 1ch;
+`
+
+const ButtonCaption = styled.div`
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.8em;
+  color: ${color.shadow};
+`
 
 const renderFeature = (feature, key) => {
-  return <li key={key}>{feature}</li>
+  return <Feature key={key}>{feature}</Feature>
 }
 
 const IndexLayout = () => {
@@ -49,13 +80,14 @@ const IndexLayout = () => {
       <SEO title="Fokus"/>
       <Content>
         <div>
-          <h1>Always be reminded of what needs to be done.</h1>
-          <div>Fokus is an open source app that helps you be reminded of your tasks and events from school; so that, you won't miss them.</div>
+          <Header>Always be reminded of what needs to be done.</Header>
+          <Description>Fokus is an open source app that helps you be reminded of your tasks and events from school; so that, you won't miss them.</Description>
   
           <div>{ 
               data.features ? <ul>{ data.features.map((item, index) => { return renderFeature(item, index) } ) }</ul> : <div></div> 
           }</div>
-          <LinkButton text={`Download Fokus ${data.version}`} targetLink={data.source}/>
+          <LinkButton text={`Download APK`} targetLink={data.source}/>
+          <ButtonCaption>{`Version ${data.version}`}</ButtonCaption>
         </div>
         <Image/>
       </Content>

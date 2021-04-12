@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import GlobalStyle from './styles';
 import Header from './header';
 import Footer from './footer';
-import { Device } from './constants';
 
 const Layout = styled.div`
     width: 100%;
@@ -20,7 +19,6 @@ const Layout = styled.div`
         margin: 0 auto;
         padding: 0 2.5rem;
     }
-
 `
 
 const Page = ({ children }) => {
